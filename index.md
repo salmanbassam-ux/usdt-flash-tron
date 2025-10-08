@@ -1,5 +1,9 @@
 # Tether USD — Flash (Educational / Unofficial) • TRON Mainnet
 
+<p align="center">
+  <img src="assets/logo.png" alt="USDT Flash Logo" width="128" height="128">
+</p>
+
 > **⚠️ Important:** This is an **educational “flash/mirror” token** on TRON Mainnet.  
 > It is **NOT** the official USDT by Tether. **No trading is intended.**
 > DEX interactions may be disabled after a one-time tiny swap to register price.
