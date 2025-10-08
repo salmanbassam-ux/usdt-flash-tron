@@ -1,3 +1,7 @@
+---
+title: USDT Flash (Educational)
+---
+
 # Tether USD — Flash (Educational / Unofficial) • TRON Mainnet
 
 <p align="center">
