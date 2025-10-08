@@ -1,3 +1,6 @@
+---
+title: USDT Flash (Educational)
+---
 Tether USD – Educational TRC20 Project
 
 Version 1.0 – by Bassam Salman
