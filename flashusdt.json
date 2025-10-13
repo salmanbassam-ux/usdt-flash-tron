@@ -1,0 +1,15 @@
+{
+  "name": "FlashUSDT Official List",
+  "logoURI": "https://raw.githubusercontent.com/salmanbassam-ux/tron-tvc-list/main/logo.png",
+  "timestamp": "2025-10-13T00:00:00Z",
+  "tokens": [
+    {
+      "chainId": 1,
+      "address": "TZEaEDj2bhaGNkTvqbGsVaZzgfDRPpW8ry",
+      "name": "Flash USDT",
+      "symbol": "USDT",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/salmanbassam-ux/tron-tvc-list/main/logo.png"
+    }
+  ]
+}
