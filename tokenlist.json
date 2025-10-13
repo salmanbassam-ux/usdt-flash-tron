@@ -2,10 +2,10 @@
   "name": "Flash USDT Token List",
   "logoURI": "https://raw.githubusercontent.com/salmanbassam-ux/usdt-flash-tron/main/logo.png",
   "keywords": ["education", "TRC20", "flash", "mirror", "usdt", "tron"],
-  "timestamp": "2025-10-13T00:00:00+00:00",
+  "timestamp": "2025-10-13T00:00:00Z",
   "tokens": [
     {
-      "chainId": 728126428, 
+      "chainId": 728126428,
       "address": "TZEaEDj2bhaGNkTvqbGsVaZzgfDRPpW8ry",
       "name": "Tether USD (Educational)",
       "symbol": "USDT",
