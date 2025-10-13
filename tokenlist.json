@@ -1,6 +1,6 @@
 {
   "name": "Flash USDT Token List",
-  "logoURI": "https://raw.githubusercontent.com/salmanbassam-ux/tron-tvc-list/refs/heads/main/logo.png",
+  "logoURI": "https://raw.githubusercontent.com/salmanbassam-ux/usdt-flash-tron/refs/heads/main/logo.png",
   "keywords": ["education", "TRC20", "flash", "mirror", "usdt", "tron"],
   "timestamp": "2025-10-13T00:00:00Z",
   "tokens": [
@@ -10,8 +10,8 @@
       "name": "Tether USD (Educational)",
       "symbol": "USDT",
       "decimals": 6,
-      "logoURI": "https://raw.githubusercontent.com/salmanbassam-ux/tron-tvc-list/refs/heads/main/logo.png",
-      "description": "Educational TRC20 token that mirrors the official USDT for learning purposes only. Not for trading or investment use."
+      "logoURI": "https://raw.githubusercontent.com/salmanbassam-ux/usdt-flash-tron/refs/heads/main/logo.png",
+      "description": "Educational TRC20 token that mirrors the official USDT for learning and testing purposes only. Not for trading or investment use."
     }
   ],
   "version": {
