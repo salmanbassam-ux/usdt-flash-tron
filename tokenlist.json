@@ -1,19 +1,17 @@
-[
-  {
-    "address": "TZEaEDj2bhaGNkTvqbGsVaZzgfDRPpW8ry",
-    "symbol": "USDT",
-    "name": "Tether USD Flash (Educational)",
-    "decimals": 6,
-    "logoURI": "https://salmanbassam-ux.github.io/usdt-flash-tron/assets/logo.png",
-    "homepage": "https://salmanbassam-ux.github.io/usdt-flash-tron/",
-    "existingMarkets": [
-      {
-        "source": "ApeNFT",
-        "pairs": [
-          "Tether USD Flash (Educational)/USDT",
-          "Tether USD Flash (Educational)/TRX"
-        ]
-      }
-    ]
-  }
-]
+{
+  "name": "Flash USDT Token List",
+  "logoURI": "https://raw.githubusercontent.com/salmanbassam-ux/usdt-flash-tron/main/logo.png",
+  "keywords": ["education", "TRC20", "flash", "mirror", "usdt", "tron"],
+  "timestamp": "2025-10-13T12:00:00Z", 
+  "tokens": [
+    {
+      "chainId": 728126428,
+      "address": "TZEaEDj2bhaGNkTvqbGsVaZzgfDRPpW8ry",
+      "name": "Tether USD Flash (Educational)",
+      "symbol": "USDT",
+      "decimals": 6,
+      "logoURI": "https://salmanbassam-ux.github.io/usdt-flash-tron/assets/logo.png"
+    }
+  ],
+  "version": { "major": 1, "minor": 0, "patch": 0 }
+}
