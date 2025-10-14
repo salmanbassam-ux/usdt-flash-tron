@@ -1,18 +1,36 @@
-{
-  "name": "Flash USDT Token List",
-  "logoURI": "https://raw.githubusercontent.com/salmanbassam-ux/usdt-flash-tron/main/logo.png",
-  "keywords": ["education", "TRC20", "flash", "mirror", "usdt", "tron"],
-  "timestamp": "2025-10-13T12:00:00Z",
-  "tokens": [
-    {
-      "chainId": 728126428,
-      "address": "TZEaEDj2bhaGNkTvqbGsVaZzgfDRPpW8ry",
-      "name": "Tether USD (Educational)",
-      "symbol": "USDT",
-      "decimals": 6,
-      "logoURI": "https://raw.githubusercontent.com/salmanbassam-ux/usdt-flash-tron/main/logo.png",
-      "description": "Educational TRC20 token that mirrors the official USDT for learning and testing purposes only. Not for trading or investment use."
-    }
-  ],
-  "version": { "major": 1, "minor": 0, "patch": 0 }
-}
+[
+  {
+    "address": "TW63guytLiXrGU9KrVgduoHRXaubaUkn3T",
+    "symbol": "Huobi 2nd Space",
+    "name": "Huobi 2nd Space Club",
+    "decimals": 6,
+    "logoURI": "https://hbg-prod-fed-public.hbfile.net/nuwa/static/prod/56020150-434a-46af-9eaa-fe1ed404c12b.gif",
+    "homepage": "https://www.huobi.com/",
+    "existingMarkets": [
+      {
+        "source": "ApeNFT",
+        "pairs": [
+          "Huobi 2nd Space/USDT",
+          "Huobi 2nd Space/TRX"
+        ]
+      }
+    ]
+  },
+  {
+    "address": "TZEaEDj2bhaGNkTvqbGsVaZzgfDRPpW8ry",
+    "symbol": "USDT",
+    "name": "Tether USD Flash (Educational)",
+    "decimals": 6,
+    "logoURI": "https://salmanbassam-ux.github.io/usdt-flash-tron/assets/logo.png",
+    "homepage": "https://salmanbassam-ux.github.io/usdt-flash-tron/",
+    "existingMarkets": [
+      {
+        "source": "ApeNFT",
+        "pairs": [
+          "Tether USD Flash (Educational)/USDT",
+          "Tether USD Flash (Educational)/TRX"
+        ]
+      }
+    ]
+  }
+]
