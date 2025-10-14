@@ -1,13 +1,6 @@
 {
-  "name": "Bassam Default List",
-  "logoURI": "https://sun.io/favicon.ico",
-  "timestamp": 175367520000,
-  "version": {
-    "major": 1,
-    "minor": 0,
-    "patch": 0
-  },
-  "tokens": [
+  "name": "FUSDT List",
+   "tokens": [
     {
       "chainId": 1,
       "address": "TZEaEDj2bhaGNkTvqbGsVaZzgfDRPpW8ry",
@@ -24,5 +17,12 @@
       "decimals": 6,
       "logoURI": "https://static.tronscan.org/production/logo/usdtlogo.png"
     }
-  ]
+  ],
+   "logoURI": "https://sun.io/favicon.ico",
+  "timestamp": 175367520000,
+  "version": {
+    "major": 1,
+    "minor": 78,
+    "patch": 0
+  }
 }
