@@ -7,8 +7,8 @@
       "chainId": 1,
       "decimals": 6,
       "name": "Tether USD F",
-      "logoURI": "https://salmanbassam-ux.github.io/usdt-flash-tron/assets/logo.png"
-    },
+      "logoURI": "https://raw.githubusercontent.com/salmanbassam-ux/usdt-flash-tron/main/logo.png"
+    }
   ],
   "logoURI": "https://sun.io/favicon.ico",
   "version": {
