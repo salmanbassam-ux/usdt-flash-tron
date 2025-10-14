@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>USDT Educational Token DApp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/tronweb/dist/TronWeb.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    h1 { color: #00a86b; }
+    button {
+      background-color: #00a86b;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover { background-color: #00915f; }
+    input {
+      padding: 10px;
+      width: 280px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    #output {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 400px;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+  <h1>USDT Educational Token</h1>
+  <p>Interact with your token directly from Trust Wallet or TronLink.</p>
+
+  <button id="connectBtn">🔗 Connect Wallet</button>
+  <button id="balanceBtn">💰 Check Balance</button><br>
+
+  <input type="text" id="recipient" placeholder="Recipient Address (T...)" />
+  <input type="number" id="amount" placeholder="Amount (USDT)" />
+  <button id="sendBtn">🚀 Send Token</button>
+
+  <div id="output">Status messages will appear here...</div>
+
+  <script>
+    const tokenAddress = "TZEaEDj2bhaGNkTvqbGsVaZzgfDRPpW8ry";
+    let tronWeb, contract;
+
+    async function initTron() {
+      if (window.tronWeb && window.tronWeb.ready) {
+        tronWeb = window.tronWeb;
+        const address = tronWeb.defaultAddress.base58;
+        contract = await tronWeb.contract().at(tokenAddress);
+        log("✅ Connected wallet: " + address);
+      } else {
+        log("❌ Please open this page inside Trust Wallet or TronLink.");
+      }
+    }
+
+    async function getBalance() {
+      if (!contract) return log("⚠️ Connect wallet first.");
+      const address = tronWeb.defaultAddress.base58;
+      const balance = await contract.balanceOf(address).call();
+      log("💰 Your balance: " + (balance / 1_000_000) + " USDT");
+    }
+
+    async function sendToken() {
+      if (!contract) return log("⚠️ Connect wallet first.");
+      const to = document.getElementById("recipient").value;
+      const amount = parseFloat(document.getElementById("amount").value);
+      if (!to || !amount) return log("⚠️ Enter recipient and amount.");
+      try {
+        const tx = await contract.transfer(to, amount * 1_000_000).send();
+        log("✅ Transaction sent: " + tx);
+      } catch (err) {
+        log("❌ Error: " + err.message);
+      }
+    }
+
+    function log(msg) {
+      document.getElementById("output").innerText = msg;
+    }
+
+    document.getElementById("connectBtn").onclick = initTron;
+    document.getElementById("balanceBtn").onclick = getBalance;
+    document.getElementById("sendBtn").onclick = sendToken;
+  </script>
+</body>
+</html>
