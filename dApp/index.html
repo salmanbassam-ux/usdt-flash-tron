@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>USDT Educational Token DApp</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.jsdelivr.net/npm/tronweb/dist/TronWeb.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <!-- ✅ تحميل مكتبة TronWeb الأصلية -->
+  <script src="https://cdn.jsdelivr.net/npm/tronweb@5.3.1/dist/TronWeb.min.js"></script>
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f8fa;
       color: #222;
       display: flex;
       flex-direction: column;
@@ -16,22 +19,25 @@
       justify-content: center;
       min-height: 100vh;
       padding: 20px;
+      text-align: center;
     }
-    h1 { color: #00a86b; }
+    h1 { color: #007f5f; margin-bottom: 5px; }
+    p { color: #555; margin-top: 0; }
     button {
-      background-color: #00a86b;
+      background-color: #007f5f;
       color: white;
       border: none;
-      padding: 12px 24px;
+      padding: 12px 25px;
       border-radius: 8px;
-      margin: 10px;
+      margin: 10px 0;
       font-size: 16px;
       cursor: pointer;
+      width: 220px;
     }
-    button:hover { background-color: #00915f; }
+    button:hover { background-color: #006b4f; }
     input {
       padding: 10px;
-      width: 280px;
+      width: 260px;
       margin: 5px;
       border: 1px solid #ccc;
       border-radius: 8px;
@@ -39,12 +45,14 @@
     #output {
       background: white;
       border-radius: 10px;
-      padding: 15px;
+      padding: 12px;
       margin-top: 20px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       width: 90%;
-      max-width: 400px;
+      max-width: 420px;
       word-wrap: break-word;
+      text-align: left;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -62,44 +70,75 @@
   <div id="output">Status messages will appear here...</div>
 
   <script>
-    const tokenAddress = "TZEaEDj2bhaGNkTvqbGsVaZzgfDRPpW8ry";
+    const tokenAddress = "TZEaEDj2bhaGNkTvqbGsVaZzgfDRPpW8ry"; // 🔗 عقد توكنك
     let tronWeb, contract;
 
-    async function initTron() {
-      if (window.tronWeb && window.tronWeb.ready) {
-        tronWeb = window.tronWeb;
-        const address = tronWeb.defaultAddress.base58;
-        contract = await tronWeb.contract().at(tokenAddress);
-        log("✅ Connected wallet: " + address);
-      } else {
-        log("❌ Please open this page inside Trust Wallet or TronLink.");
-      }
-    }
-
-    async function getBalance() {
-      if (!contract) return log("⚠️ Connect wallet first.");
-      const address = tronWeb.defaultAddress.base58;
-      const balance = await contract.balanceOf(address).call();
-      log("💰 Your balance: " + (balance / 1_000_000) + " USDT");
-    }
-
-    async function sendToken() {
-      if (!contract) return log("⚠️ Connect wallet first.");
-      const to = document.getElementById("recipient").value;
-      const amount = parseFloat(document.getElementById("amount").value);
-      if (!to || !amount) return log("⚠️ Enter recipient and amount.");
-      try {
-        const tx = await contract.transfer(to, amount * 1_000_000).send();
-        log("✅ Transaction sent: " + tx);
-      } catch (err) {
-        log("❌ Error: " + err.message);
-      }
-    }
-
+    // ✅ تسجيل رسالة في مربع النتائج
     function log(msg) {
       document.getElementById("output").innerText = msg;
+      console.log(msg);
     }
 
+    // ✅ فحص وجود tronWeb في أي محفظة
+    async function detectTronWeb() {
+      if (window.tronWeb && window.tronWeb.ready) {
+        tronWeb = window.tronWeb;
+        log("🔍 TronLink detected and ready.");
+        return true;
+      } else if (window.tronWeb) {
+        tronWeb = window.tronWeb;
+        log("⚠️ tronWeb found but not fully ready. Try reconnecting.");
+        return true;
+      } else {
+        log("❌ Tron environment not detected. Please open in TronLink or Sun.io browser.");
+        return false;
+      }
+    }
+
+    // ✅ الاتصال بالمحفظة
+    async function initTron() {
+      const detected = await detectTronWeb();
+      if (!detected) return;
+      try {
+        const address = tronWeb.defaultAddress.base58;
+        contract = await tronWeb.contract().at(tokenAddress);
+        log(`✅ Connected wallet: ${address}`);
+      } catch (err) {
+        log("❌ Error connecting wallet: " + err.message);
+      }
+    }
+
+    // ✅ فحص الرصيد
+    async function getBalance() {
+      try {
+        if (!tronWeb || !tronWeb.ready) return log("⚠️ Wallet not connected.");
+        if (!contract) contract = await tronWeb.contract().at(tokenAddress);
+        const address = tronWeb.defaultAddress.base58;
+        log("⏳ Fetching balance for: " + address);
+        const balance = await contract.methods.balanceOf(address).call();
+        const readable = tronWeb.toBigNumber(balance._hex || balance).toNumber() / 1_000_000;
+        log("💰 Your balance: " + readable.toFixed(6) + " USDT");
+      } catch (err) {
+        log("❌ Error fetching balance: " + err.message);
+      }
+    }
+
+    // ✅ إرسال التوكن
+    async function sendToken() {
+      try {
+        if (!tronWeb || !tronWeb.ready) return log("⚠️ Connect wallet first.");
+        const to = document.getElementById("recipient").value;
+        const amount = parseFloat(document.getElementById("amount").value);
+        if (!to || !amount) return log("⚠️ Enter recipient and amount.");
+        if (!contract) contract = await tronWeb.contract().at(tokenAddress);
+        const tx = await contract.methods.transfer(to, amount * 1_000_000).send();
+        log("✅ Transaction sent successfully:\n" + tx);
+      } catch (err) {
+        log("❌ Transaction failed: " + err.message);
+      }
+    }
+
+    // ✅ ربط الأزرار
     document.getElementById("connectBtn").onclick = initTron;
     document.getElementById("balanceBtn").onclick = getBalance;
     document.getElementById("sendBtn").onclick = sendToken;
