@@ -28,4 +28,4 @@ title: USDT Flash (Educational)
 **Official USDT (reference):** `TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t`  
 **TronScan:** https://tronscan.org/#/contract/TZEaEDj2bhaGNkTvqbGsVaZzgfDRPpW8ry  
 
-**Contact:** your.email@example.com
+**Contact:** salman.bassam@gmial.com
