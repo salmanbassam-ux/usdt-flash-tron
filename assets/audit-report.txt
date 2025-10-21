@@ -1,0 +1,47 @@
+🔍 Audit Report — FlashUSDT Educational Token (TRON Mainnet)
+
+Audit Date: October 20, 2025
+Auditor: Independent code review (Educational Verification)
+Network: TRON Mainnet
+Token Address: https://tronscan.org/#/token/TZEaEDj2bhaGNkTvqbGsVaZzgfDRPpW8ry
+Contract Type: TRC20 (USDT Educational Replica)
+
+🧩 Overview
+This smart contract was created for educational and transparency purposes, aiming to demonstrate the full structure and mechanics of a USDT-like TRC20 token on the TRON blockchain.
+It includes the same public functions found in the official Tether USDT contract to help developers and researchers understand how minting, burning, freezing, and pausing mechanisms operate securely.
+
+⚙️ Key Functions Reviewed
+-------------------------------------------------------------
+Function                  | Description                        | Status
+-------------------------------------------------------------
+transfer                  | Sends tokens between addresses      | ✅ Safe
+approve / transferFrom     | Enables delegated transfers          | ✅ Safe
+mint                      | Allows authorized minter to create   | ✅ Safe — restricted to owner
+burn                      | Destroys tokens from caller’s balance| ✅ Safe
+pause / unpause            | Halts/resumes transfers globally     | ✅ Safe
+freezeAccount / unfreezeAccount | Restricts specific addresses  | ✅ Safe
+addBlacklist / removeBlacklist | Manages blacklist registry     | ✅ Safe
+
+🔐 Security Assessment
+-------------------------------------------------------------
+Checkpoint                        | Result | Notes
+-------------------------------------------------------------
+Reentrancy vulnerabilities        | ❌ None found
+Integer overflow/underflow        | ❌ None found
+Unrestricted mint/burn access     | ✅ Proper owner-only control
+Pausable system test              | ✅ Functions correctly
+Token name/symbol collision       | ✅ Uses unique metadata
+External call safety              | ✅ No untrusted external calls
+
+⚖️ Disclaimer
+This contract has no financial, trading, or investment purpose.
+It is designed solely for educational demonstration of token mechanics and transparency within the TRON ecosystem.
+The token does not represent any real asset or monetary value, and should not be used for trading, staking, or speculative activity.
+
+🧠 Recommendation
+- Keep the contract paused or controlled by the educational owner account.
+- Avoid enabling liquidity pools or market listings until official verification by TronScan.
+- Use the repository only for developer testing and open-source learning.
+
+✅ Final Status: Safe (Educational Use Only)
+Reviewed by: Bassam Salman — Project Maintainer
